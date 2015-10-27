@@ -1,5 +1,5 @@
-from PathGenerationCubic import *
-from mayavi import mlab
+__author__ = 'Raul Acuna'
+from pylab import zeros, mgrid, array, dot, sqrt, empty_like
 
 # This function calculates for every point inside the CUBE
 # a vector that represent a direction of approach to the path
@@ -83,30 +83,3 @@ def calc_vec_field_fast(path_x, path_y, path_z, cube_size, cube_step):
             min_mod_vec[condition] = mod_vec[condition]
             vector_field[:, condition] = vector_field_matrix[:, condition]
     return vector_field, xc, yc, zc
-
-# We first define the main 3D points of the route
-# For closed loop trajectories: loop=True
-
-Pos0 = array([4, 8, 3])
-Pos1 = array([14, 12, 17])
-Pos2 = array([14, 4, 17])
-Loop = True
-Pos = array([Pos0, Pos1, Pos2])
-
-# We obtain a path from a set of discrete points using
-# Cubic splines
-
-X, Y, Z, Tt = path_3d(Pos, Loop)
-
-# Now we calculate the vector field using the provided functions
-
-vector_field_3D, Xc, Yc, Zc = calc_vec_field_fast(X, Y, Z, 20, 1)
-
-# We plot
-
-mlab.figure(size=(800, 600))
-mlab.flow(Xc, Yc, Zc, vector_field_3D[0], vector_field_3D[1], vector_field_3D[2], linetype='tube', seedtype='plane')
-mlab.pipeline.vector_field(Xc, Yc, Zc, vector_field_3D[0], vector_field_3D[1], vector_field_3D[2], name='vector field')
-mlab.points3d(X, Y, Z, Tt)
-mlab.quiver3d(Xc, Yc, Zc, vector_field_3D[0], vector_field_3D[1], vector_field_3D[2])
-mlab.show()

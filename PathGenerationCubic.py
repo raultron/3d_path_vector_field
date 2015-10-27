@@ -1,4 +1,5 @@
-from pylab import *
+__author__ = 'Raul Acuna'
+from pylab import zeros, array, sqrt, vstack, dot, arange, linalg, hstack
 
 
 def path_3d(pos, loop):
@@ -84,13 +85,13 @@ def path_3d(pos, loop):
                    [1, t1, t1 ** 2, t1 ** 3],
                    [0, 1, 2 * t1, 3 * t1 ** 2]])
 
-        A = dot(linalg.inv(m), array([[xi], [dxi], [xf], [dxf]]))
-        B = dot(linalg.inv(m), array([[yi], [dyi], [yf], [dyf]]))
-        C = dot(linalg.inv(m), array([[zi], [dzi], [zf], [dzf]]))
+        m_a = dot(linalg.inv(m), array([[xi], [dxi], [xf], [dxf]]))
+        m_b = dot(linalg.inv(m), array([[yi], [dyi], [yf], [dyf]]))
+        m_c = dot(linalg.inv(m), array([[zi], [dzi], [zf], [dzf]]))
 
-        x_temp = A[0] + A[1] * t + A[2] * t ** 2 + A[3] * t ** 3
-        y_temp = B[0] + B[1] * t + B[2] * t ** 2 + B[3] * t ** 3
-        z_temp = C[0] + C[1] * t + C[2] * t ** 2 + C[3] * t ** 3
+        x_temp = m_a[0] + m_a[1] * t + m_a[2] * t ** 2 + m_a[3] * t ** 3
+        y_temp = m_b[0] + m_b[1] * t + m_b[2] * t ** 2 + m_b[3] * t ** 3
+        z_temp = m_c[0] + m_c[1] * t + m_c[2] * t ** 2 + m_c[3] * t ** 3
 
         if i == 0:
             path_x = x_temp
