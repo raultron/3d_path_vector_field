@@ -24,14 +24,12 @@ def path_3d(pos, loop):
         for i in range(n_points):
             if i < n_points - 1:
                 # All the internal points
-                print 'Internal point in the path:', i
                 vector1 = pos[i, :] - pos[i - 1, :]
                 vector2 = pos[i + 1, :] - pos[i, :]
                 v_result = vector1 + vector2
                 vectors[i, :] = v_result / sqrt(dot(v_result, v_result))
             else:
                 # Careful with the last one
-                print 'Last point in the loop:', i
                 vector1 = pos[i, :] - pos[i - 1, :]
                 vector2 = pos[0, :] - pos[i, :]
                 v_result = vector1 + vector2
@@ -45,18 +43,14 @@ def path_3d(pos, loop):
         vectors = zeros((n_points, 3))
         for i in range(n_points):
             if (i > 0) and (i < n_points - 1):
-                print 'Internal point in the path:', i
                 # All the internal points
                 vector1 = pos[i, :] - pos[i - 1, :]
                 vector2 = pos[i + 1, :] - pos[i, :]
                 v_result = vector1 + vector2
                 vectors[i, :] = v_result / sqrt(dot(v_result, v_result))
             else:
-                print 'The start and last point has velocity zero', i
                 vectors[0, :] = zeros(3)
                 vectors[n_points - 1, :] = zeros(3)
-
-    print vectors
 
     to = 1
     t1 = 10

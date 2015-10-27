@@ -22,6 +22,7 @@ X, Y, Z, Tt = path_3d(Pos, Loop)
 
 vector_field_3D, Xc, Yc, Zc = calc_vec_field_fast(X, Y, Z, 20, 1)
 
+
 # We plot
 mlab.figure(size=(800, 600))
 mlab.flow(Xc, Yc, Zc, vector_field_3D[0], vector_field_3D[1], vector_field_3D[2], linetype='tube', seedtype='plane')
