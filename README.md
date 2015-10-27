@@ -8,7 +8,9 @@ Tested in Ubuntu 12.04 and 14.04 with Python 2.7
 ## Installation
 
 1. Install Mayavi (Scientific visualization package for 2D and 3D data)
+```
 sudo apt-get install mayavi2
+```
 
 2. Clone the repo and execute the file "Example.py". If everything is working you should see a Mayavi windows with a visualization of the Path, the 3D vector field and the streamlines.
 
