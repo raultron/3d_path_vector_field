@@ -1,4 +1,4 @@
-# 3d_path_vector_field
+# Generator of 3-Dimensional vector field for path following
 This repository contains python helper files which allows the calculation and display of 3D paths and vector fields for using in robot path following.
 
 ## Requirenments:
