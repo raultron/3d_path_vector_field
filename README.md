@@ -11,8 +11,11 @@ Tested in Ubuntu 12.04 and 14.04 with Python 2.7
 ```
 sudo apt-get install mayavi2
 ```
-
-2. Clone the repo and execute the file "Example.py". If everything is working you should see a Mayavi windows with a visualization of the Path, the 3D vector field and the streamlines.
+2. Clone the repo.
+```
+git clone git@github.com:raultron/3d_path_vector_field.git
+```
+3. Execute the file "Example.py" in python. If everything is working you should see a Mayavi windows with a visualization of the Path, the 3D vector field and the streamlines.
 
 
 ## Documentation
